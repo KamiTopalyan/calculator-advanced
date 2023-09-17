@@ -6,7 +6,7 @@ const getStyleName = (btn: string | number) => {
     case "C":
       return "reset";
     case "/":
-    case "x":
+    case "X":
     case "-":
     case "+":
       return "operator";
@@ -18,7 +18,7 @@ const getStyleName = (btn: string | number) => {
 };
 
 interface ButtonProps {
-  value: "." | "C" | "/" | "x" | "-" | "+" | "=" | "%" | "+-" | number;
+  value: "." | "C" | "/" | "X" | "-" | "+" | "=" | "%" | "+-" | number;
 }
 
 const Button = ({ value }: ButtonProps) => {
@@ -66,11 +66,11 @@ const Button = ({ value }: ButtonProps) => {
   // User click =
   const equalsClick = () => {
     if (calc.res && calc.num) {
-      const math = (x: number, y: number, sign: "+" | "-" | "x" | "/") => {
+      const math = (x: number, y: number, sign: "+" | "-" | "X" | "/") => {
         const result = {
           "+": (x: number, y: number) => x + y,
           "-": (x: number, y: number) => x - y,
-          "x": (x: number, y: number) => x * y,
+          "X": (x: number, y: number) => x * y,
           "/": (x: number, y: number) => x / y,
         };
         return result[sign](x, y);
@@ -106,7 +106,7 @@ const Button = ({ value }: ButtonProps) => {
       ".": commaClick,
       "C": resetClick,
       "/": signClick,
-      "x": signClick,
+      "X": signClick,
       "-": signClick,
       "+": signClick,
       "=": equalsClick,
